@@ -4,11 +4,6 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
-	<!--配置日志 -->
-	<settings>
-		<setting name="logImpl" value="LOG4J" />
-	</settings>
-
 	<!--取别名 -->
 	<typeAliases>
 		<!-- <typeAlias type="com.ssm.entity.Student" alias="student"/> -->

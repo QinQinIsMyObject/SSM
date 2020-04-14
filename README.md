@@ -24,23 +24,30 @@
 	加载spring-config.xml、springmvc-config.xml、中文乱码
 ##### （5）测试功能
 ## 3、说明
+### Log4j版本低出现的一个漏洞：CVE-2019-17571
+	**脆弱版本：** > = 1.2，<= 1.2.27
+	**修补版本：** *无修复*
+	Log4j 1.2中包含一个SocketServer类，该类很容易对不可信数据进行反序列化，当侦听日志数据的不可信网络流量时，与反序列化小工具结合使用时，可以利用该类远程执行任意代码。这会影响Log4j版本1.2到1.2.17。
+### 解决Log4j问题，采用高版本Log4j/2。
+```
+<!-- Log4J/2依赖 -->
+<!-- https://logging.apache.org/log4j/2.x/maven-artifacts.html -->
+<dependency>
+	<groupId>org.apache.logging.log4j</groupId>
+	<artifactId>log4j-api</artifactId>
+	<version>2.13.1</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.logging.log4j</groupId>
+    <artifactId>log4j-core</artifactId>
+    <version>2.13.1</version>
+</dependency>
+```
 ## 4、报错
 	出现“严重: Servlet.service() for servlet [ssm] in context with path [/SSM] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause java.lang.NullPointerException”
 	解决办法：a.导包不对或者未导入相应的包；b.单词写错。
-
 	运行Tomcat出现“Server Tomcat v7.0 Server at localhost was unable to start within 45 seconds. If the server requires more time, try increasing the timeout in the server editor.”
 	解决方法：找到Tomcat中serve.xml中的timeouts，将其调大。
 ## 5、附加
-### 依赖
-    spring-webmvc：https://mvnrepository.com/artifact/org.springframework/spring-webmvc
-```
-<!-- spring-webmvc依赖 -->
-<!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
-<dependency>
-    <groupId>org.springframework</groupId>
-    <artifactId>spring-webmvc</artifactId>
-    <version>5.2.4.RELEASE</version>
-</dependency>
-```
 ### JDK8API
     https://docs.oracle.com/javase/8/docs/api/
