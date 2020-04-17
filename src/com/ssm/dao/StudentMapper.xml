@@ -3,5 +3,22 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ssm.dao.StudentMapper">
 
-    
+<!-- 	<insert id="addStu" useGeneratedKeys="true" keyColumn="sno"> -->
+<!-- 		insert -->
+<!-- 		into -->
+<!-- 		student(sname,sex,age,gid,phone,address) -->
+<!-- 		value(#{sname},#{sex},#{age},#{gid},#{phone},#{address}) -->
+<!-- 	</insert> -->
+
+	<!-- 更新学生的功能 -->
+	<update id="updateStu" parameterType="student">
+		update student
+		<set>
+			<if test="sname!=null and sname!=''">sname=#{sname},</if>
+			<if test="sex!=null and sex!=''">sex=#{sex},</if>
+			<if test="phone!=null and phone!=''">phone=#{phone}</if>
+		</set>
+		where sno=${sno}
+	</update>
+
 </mapper>

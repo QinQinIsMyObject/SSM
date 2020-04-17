@@ -1,6 +1,6 @@
 # 项目说明
 ## 1、主要功能
-    基于SSM整合查询单个和所有功能
+    基于SSM整合增删改查功能
 ## 2、主要知识点
 ### 整合的概述
 #### 各自承担的功能
@@ -48,6 +48,9 @@
 	解决办法：a.导包不对或者未导入相应的包；b.单词写错。
 	运行Tomcat出现“Server Tomcat v7.0 Server at localhost was unable to start within 45 seconds. If the server requires more time, try increasing the timeout in the server editor.”
 	解决方法：找到Tomcat中serve.xml中的timeouts，将其调大。
+/WEB-INF/jsp/index.jsp (行.: [34], 列: [40]) #{...} 不允许出现在模板文本中
+	把$写错了。
+
 ## 5、附加
 ### JDK8API
     https://docs.oracle.com/javase/8/docs/api/
