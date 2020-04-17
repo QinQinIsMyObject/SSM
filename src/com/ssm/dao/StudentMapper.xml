@@ -3,12 +3,11 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ssm.dao.StudentMapper">
 
-<!-- 	<insert id="addStu" useGeneratedKeys="true" keyColumn="sno"> -->
-<!-- 		insert -->
-<!-- 		into -->
-<!-- 		student(sname,sex,age,gid,phone,address) -->
-<!-- 		value(#{sname},#{sex},#{age},#{gid},#{phone},#{address}) -->
-<!-- 	</insert> -->
+	<insert id="addStu" useGeneratedKeys="true" keyColumn="sno">
+		insert
+		into student(sname,sex,age,gid,phone,address)
+		value(#{sname},#{sex},#{age},#{gid},#{phone},#{address})
+	</insert>
 
 	<!-- 更新学生的功能 -->
 	<update id="updateStu" parameterType="student">

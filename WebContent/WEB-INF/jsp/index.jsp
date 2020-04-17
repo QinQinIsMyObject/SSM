@@ -35,8 +35,8 @@
 						href="selectDetails.do?sno=${stu.sno }">查看详情</a></th>
 				</tr>
 			</c:forEach>
-			<a href="addStuPage.do">增加</a>
 		</table>
+		<a href="toAdd.do">增加</a>
 		<h3>
 			<span style="color: red">${msg}</span>
 		</h3>

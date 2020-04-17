@@ -7,7 +7,7 @@
 <title>增加学生</title>
 </head>
 <body>
-	<form action="doAdd.do" method="post">
+	<form action="doAddStu.do" method="post">
 		姓名：<input type="text" name="sname" value=""><br />
 		性别：<input type="text" name="sex" value=""><br />
 		年龄：<input type="text" name="age" value=""><br />

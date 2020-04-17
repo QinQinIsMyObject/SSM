@@ -18,7 +18,7 @@ public interface StudentService {
 
 	int updateStu(Student stu);
 
-	List<Student> getList();
-
 	Student selectBySno(Integer sno);
+
+	List<Student> getList();
 }

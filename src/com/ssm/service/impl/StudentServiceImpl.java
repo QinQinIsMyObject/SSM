@@ -22,29 +22,34 @@ public class StudentServiceImpl implements StudentService {
 	@Autowired
 	private StudentMapper stuMapper;
 
+	// 增删改都需要进行事务的提交
 	@Transactional
 	public int addStu(Student stu) {
 		return stuMapper.addStu(stu);
 	}
 
-	@Transactional // 增删改都需要进行事务的提交
+	// 删除
+	@Transactional
 	public int deleteStu(Integer sno) {
 		return stuMapper.deleteStu(sno);
 	}
 
+	// 修改
 	@Transactional
 	public int updateStu(Student stu) {
 		return stuMapper.updateStu(stu);
 	}
 
-	@Override
-	public List<Student> getList() {
-		return stuMapper.getList();
-	}
-
+	// 查询单个
 	@Override
 	public Student selectBySno(Integer sno) {
 		return stuMapper.selectBySno(sno);
+	}
+
+	// 查询所有
+	@Override
+	public List<Student> getList() {
+		return stuMapper.getList();
 	}
 
 }

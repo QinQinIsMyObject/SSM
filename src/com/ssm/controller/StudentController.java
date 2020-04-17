@@ -23,15 +23,17 @@ public class StudentController {
 	private StudentService stuService;
 
 	// 去增加的页面
-	@RequestMapping("/addStuPage.do")
+	@RequestMapping("/toAdd.do")
 	public String toAdd() {
 		return "addStu";
 	}
 
-	@RequestMapping("/doAdd.do")
+	// 增加学生
+	@RequestMapping("/doAddStu.do")
 	public ModelAndView addStu(Student stu) {
 		int num = stuService.addStu(stu);
 		if (num > 0) {
+			// 需要带数据msg-转发到去首页Controller；不需要带数据可以使用重定向
 			return new ModelAndView("forward:stulist.do", "msg", "增加成功!");
 		}
 		return null;
@@ -83,6 +85,7 @@ public class StudentController {
 		return null;
 	}
 
+	// 查询所有
 	@RequestMapping("/stulist.do")
 	public ModelAndView getList() {
 		// 调用业务层方法，返回一个集合
