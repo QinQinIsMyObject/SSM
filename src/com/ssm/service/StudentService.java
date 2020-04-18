@@ -2,6 +2,8 @@ package com.ssm.service;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.ssm.entity.Student;
 
 /**
@@ -21,4 +23,6 @@ public interface StudentService {
 	Student selectBySno(Integer sno);
 
 	List<Student> getList();
+
+	List<Student> getListBySname(@Param("sname") String sname);
 }

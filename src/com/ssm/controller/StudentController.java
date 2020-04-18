@@ -5,8 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.ssm.entity.Student;
 import com.ssm.service.StudentService;
 
@@ -95,6 +98,23 @@ public class StudentController {
 			return new ModelAndView("index", "stulist", slist);
 		}
 		return null;
+	}
+
+	@RequestMapping("/list.do")
+	public ModelAndView getListBySname(@RequestParam(value = "page", required = true, defaultValue = "1") Integer page,
+			@RequestParam(value = "sname", required = true, defaultValue = "") String sname) {
+		// 声明一个ModelAndView对象
+		ModelAndView mv = new ModelAndView();
+		// 开始分页
+		PageHelper.startPage(page, 3);// 每页显示3条数据
+		PageHelper.orderBy("age desc");// 按年龄降序排序，默认是升序
+		List<Student> slist = stuService.getListBySname(sname);
+		PageInfo<Student> p = new PageInfo<Student>(slist);// 分页信息保存到p中PageInfo
+		mv.addObject("page", p);// 分页的数据
+		mv.addObject("stulist", slist);// stulist为index.jsp中的值
+		mv.addObject("sname", sname);
+		mv.setViewName("index");
+		return mv;
 	}
 
 }

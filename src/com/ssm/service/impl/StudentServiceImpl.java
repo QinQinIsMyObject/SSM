@@ -52,4 +52,10 @@ public class StudentServiceImpl implements StudentService {
 		return stuMapper.getList();
 	}
 
+	// 根据名字模糊查询
+	@Override
+	public List<Student> getListBySname(String sname) {
+		return stuMapper.getListBySname(sname);
+	}
+
 }

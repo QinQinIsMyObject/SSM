@@ -40,6 +40,10 @@
 		<h3>
 			<span style="color: red">${msg}</span>
 		</h3>
+		<form action="list.do" method="post">
+			姓名：<input type="text" name="sname" value="${sname}" />
+			<input type="submit" value="查询" />
+		</form>
 	</div>
 </body>
 </html>
