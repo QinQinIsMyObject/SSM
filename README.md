@@ -1,4 +1,5 @@
 # 项目说明
+
 ## 1、主要功能
     使用分页插件---PageHelper进行分页。
 ## 2、主要知识点
@@ -26,7 +27,22 @@ mybatis的一个分页插件---PageHelper
 	加载spring-config.xml、springmvc-config.xml、中文乱码
 #### （5）测试功能
 ## 3、说明
-
+### jsp页面中出现，下面警告：
+	Multiple annotations found at this line:
+	- Attribute (cellspacing) is obsolete. Its use is discouraged in HTML5 
+	 documents.
+	- Attribute (cellpadding) is obsolete. Its use is discouraged in HTML5 
+	 documents.
+	- Attribute (align) is obsolete. Its use is discouraged in HTML5 documents.
+### 解决办法：这种警告主要是因为这些属性在HTML5中过时了，并不影响代码运行
+将程序的顶部的这句：
+```javascript
+<!DOCTYPE>
+```
+修改为：
+```javascript
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+```
 ## 4、报错
 ### pom.xml中加入PageHelper分页插件出现：
 	Multiple annotations found at this line:
@@ -37,7 +53,8 @@ mybatis的一个分页插件---PageHelper
 ### 解决办法：
     （1）删除本地储存库中的PageHelper目录，重新启动编译器再次更新Maven项目。
     （2）可以从中央储存库下载此文件（不推荐）：https://repo1.maven.org/maven2/com/github/pagehelper/pagehelper/5.1.11/
-
+### 运行list.do出错： <h3>):[c]和[/WEB-INF/jsp/index.jsp]的TagLibraryValidator的验证错误消息</h3><p>109: Illegal text inside "c:choose" tag: "  ...".</p>
+### 解决办法：有多余的符号(例空格)。
 ## 5、附加
 ### JDK8API
     https://docs.oracle.com/javase/8/docs/api/
