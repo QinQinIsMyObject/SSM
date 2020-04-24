@@ -43,7 +43,12 @@ mybatis的一个分页插件---PageHelper
 ```javascript
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 ```
+### 出现：The superclass "javax.servlet.http.HttpServlet" was not found on the Java Build Path
+
+###解决方式：Buildpath---service。
+
 ## 4、报错
+
 ### pom.xml中加入PageHelper分页插件出现：
 	Multiple annotations found at this line:
 	- The string "--" is not permitted within comments.
